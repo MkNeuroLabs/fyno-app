@@ -849,7 +849,7 @@
 .ud-pagina.ud-unidad .ud-cab__marca {
   display: flex; align-items: center; gap: 12px; text-decoration: none;
 }
-.ud-pagina.ud-unidad .ud-cab__rosa { display: block; width: 65px; height: 75px; object-fit: contain; }
+.ud-pagina.ud-unidad .ud-cab__rosa { display: block; width: 81px; height: 94px; object-fit: contain; }
 .ud-pagina.ud-unidad .ud-cab__texto { display: block; width: auto; height: 84px; }
 .ud-pagina.ud-unidad .ud-cab__nombre {
   font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
@@ -1277,7 +1277,7 @@
 @media (max-width: 767.98px) {
   .ud-pagina.ud-unidad { font-size: 16px; --u-margen: 16px; }
   .ud-pagina.ud-unidad .ud-cab { padding: 16px; }
-  .ud-pagina.ud-unidad .ud-cab__rosa { width: 50px; height: 58px; }
+  .ud-pagina.ud-unidad .ud-cab__rosa { width: 63px; height: 73px; }
   .ud-pagina.ud-unidad .ud-cab__texto { height: 60px; }
   .ud-pagina.ud-unidad .ud-cab__nombre { font-size: 11px; letter-spacing: 0.14em; }
   .ud-pagina.ud-unidad .ud-menu { width: 100%; }
