@@ -72,11 +72,11 @@ window.UD_DATOS = {
       intentosParaSolucion: 2,
       /* Cada elemento: lo que se ve (imagen) y su respuesta correcta. */
       elementos: [
-        { id: "de-gouges", imagen: "img/galeria/de-gouges.jpg", respuesta: "Olympe de Gouges (1748-1793)" },
-        { id: "wollstonecraft", imagen: "img/galeria/wollstonecraft.jpg", respuesta: "Mary Wollstonecraft (1759-1797)" },
-        { id: "tristan", imagen: "img/galeria/tristan.jpg", respuesta: "Flora Tristán (1803-1844)" },
-        { id: "arenal", imagen: "img/galeria/arenal.jpg", respuesta: "Concepción Arenal Ponte (1820-1893)" },
-        { id: "zetkin", imagen: "img/galeria/zetkin.jpg", respuesta: "Clara Zetkin (1857-1933)" }
+        { id: "de-gouges", imagen: "../img/galeria/de-gouges.jpg", respuesta: "Olympe de Gouges (1748-1793)" },
+        { id: "wollstonecraft", imagen: "../img/galeria/wollstonecraft.jpg", respuesta: "Mary Wollstonecraft (1759-1797)" },
+        { id: "tristan", imagen: "../img/galeria/tristan.jpg", respuesta: "Flora Tristán (1803-1844)" },
+        { id: "arenal", imagen: "../img/galeria/arenal.jpg", respuesta: "Concepción Arenal Ponte (1820-1893)" },
+        { id: "zetkin", imagen: "../img/galeria/zetkin.jpg", respuesta: "Clara Zetkin (1857-1933)" }
       ],
       despues: {
         titulo: "Preguntas iniciales",

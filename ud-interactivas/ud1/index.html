@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unidad 1 · Unidades didácticas</title>
+  <link rel="stylesheet" href="../css/ud.css">
+  <script src="../js/datos-ud1.js" defer></script>
+  <script src="../js/ud-menu.js" defer></script>
+  <script src="../js/ud-actividades.js" defer></script>
+</head>
+<body class="ud-pagina ud-unidad">
+
+  <a class="ud-saltar" href="#ud-contenido">Ir al contenido</a>
+
+  <!-- CABECERA COMÚN (igual en todas las unidades) -->
+  <header class="ud-cab">
+    <a class="ud-cab__marca" href="../index.html">
+      <img class="ud-cab__rosa" src="../img/rosa-web.png" width="782" height="900" alt="" aria-hidden="true">
+      <span class="ud-cab__nombre">[Nombre del proyecto]</span>
+    </a>
+    <nav class="ud-menu" aria-label="Principal">
+      <button class="ud-menu__boton" type="button" aria-expanded="false" aria-controls="ud-menu-lista">
+        <span class="ud-menu__icono" aria-hidden="true"></span>Menú
+      </button>
+      <ul class="ud-menu__lista" id="ud-menu-lista">
+        <li><a class="ud-menu__enlace" href="../index.html">Inicio</a></li>
+        <li><a class="ud-menu__enlace" href="../index.html#unidades" aria-current="page">Unidades</a></li>
+        <li class="ud-menu__grupo">
+          <button class="ud-menu__enlace ud-menu__desplegar" type="button" aria-expanded="false" aria-controls="ud-submenu-datos">
+            Datos de la unidad<span class="ud-menu__flecha" aria-hidden="true"></span>
+          </button>
+          <ul class="ud-submenu" id="ud-submenu-datos">
+            <li><a href="#presentacion">Presentación</a></li>
+            <li><a href="#objetivos">Objetivos didácticos</a></li>
+            <li><a href="#secuencia">Secuencia de aprendizaje</a></li>
+            <li><a href="#recursos">Recursos didácticos</a></li>
+            <li><a href="#evaluacion">Evaluación</a></li>
+            <li><a href="#creditos">Fuentes y créditos</a></li>
+          </ul>
+        </li>
+        <li><a class="ud-menu__enlace" href="#recursos">Recursos</a></li>
+        <li><a class="ud-menu__enlace" href="#creditos">Créditos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="ud-contenido" tabindex="-1">
+    <div class="ud-aviso" id="ud-aviso-datos" role="alert" hidden>
+      No se ha podido cargar el archivo de datos de la unidad (carpeta js/). La página se muestra sin contenido.
+    </div>
+    <noscript>
+      <div class="ud-aviso">Esta página necesita JavaScript para mostrar la unidad.</div>
+    </noscript>
+    <div data-ud="pagina"></div>
+  </main>
+
+  <footer class="ud-pie-u">
+    <a href="../index.html">← Todas las unidades</a>
+    <p>Ilustración: Alfonso Zapico</p>
+  </footer>
+
+</body>
+</html>

@@ -60,6 +60,21 @@
     var enlace = evento.target.closest("a");
     if (enlace && (enlace.getAttribute("aria-disabled") === "true" || enlace.getAttribute("href") === "#")) {
       evento.preventDefault();
+      return;
+    }
+    // Enlace a un apartado de la misma página: se cierra el menú.
+    if (enlace && enlace.getAttribute("href").charAt(0) === "#") {
+      var destino = document.getElementById(enlace.getAttribute("href").slice(1));
+      cerrarSubmenus();
+      abrir(botonMenu, false);
+      if (destino) {
+        // Primero se cierra el menú y después se baja: así el apartado queda arriba.
+        evento.preventDefault();
+        if (!destino.hasAttribute("tabindex")) { destino.setAttribute("tabindex", "-1"); }
+        destino.scrollIntoView();
+        destino.focus({ preventScroll: true });
+        if (window.history && history.pushState) { history.pushState(null, "", "#" + destino.id); }
+      }
     }
   });
 
