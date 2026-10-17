@@ -202,6 +202,35 @@
     return f;
   }
 
+  /* Retrato de una persona: su ilustración en grande y su fotografía.
+     Si el archivo de la ilustración aún no está, se muestra solo la foto. */
+  function retrato(x) {
+    var f = el("figure", "ud-retrato");
+    var fila = el("div", "ud-retrato__fila");
+    if (x.ilustracion) {
+      var ilu = el("img", "ud-retrato__ilustracion");
+      ilu.alt = fmt(T.altIlustracion, { nombre: x.nombre });
+      ilu.loading = "lazy";
+      ilu.onerror = function () {
+        if (ilu.parentNode) { ilu.parentNode.removeChild(ilu); }
+        f.classList.add("ud-retrato--sin-ilustracion");
+      };
+      ilu.src = x.ilustracion;
+      fila.appendChild(ilu);
+    } else {
+      f.classList.add("ud-retrato--sin-ilustracion");
+    }
+    var d = datoImagen(x.foto);
+    var foto = el("div", "ud-retrato__foto");
+    foto.appendChild(imagenONada(d, d && d.alt));
+    if (d && d.estado !== "pendiente" && (d.autor || d.licencia)) { foto.appendChild(pieCredito(d)); }
+    fila.appendChild(foto);
+    f.appendChild(fila);
+    var cap = el("figcaption", "ud-retrato__nombre", x.nombre);
+    f.appendChild(cap);
+    return f;
+  }
+
   /* =========================================================
      Contenido genérico de una actividad o bloque
      ========================================================= */
@@ -241,10 +270,14 @@
         var g = el("div", "ud-galeria" + (it.clase ? " " + it.clase : ""));
         it.galeria.forEach(function (ref) { g.appendChild(figura(ref, "ud-figura--galeria")); });
         padre.appendChild(g);
-      } else if (it.ancla) {
+      } else if (it.ancla || it.href) {
         var a = el("a", "ud-enlace-flecha", it.texto);
-        a.href = "#" + it.ancla;
+        a.href = it.href || "#" + it.ancla;
         padre.appendChild(a);
+      } else if (it.retratos) {
+        var rr = el("div", "ud-retratos");
+        it.retratos.forEach(function (x) { rr.appendChild(retrato(x)); });
+        padre.appendChild(rr);
       } else if (it.nota) {
         padre.appendChild(el("p", "ud-nota", it.nota));
       } else if (it.plegable) {
@@ -557,7 +590,7 @@
       var g = el("div", "ud-rejilla-sesiones");
       b.items.forEach(function (it) {
         var a = el("a", "ud-tarjeta-sesion");
-        a.href = "#" + it.ancla;
+        a.href = it.href || "#" + it.ancla;
         a.appendChild(el("span", "ud-tarjeta-sesion__num", it.num));
         a.appendChild(el("span", "ud-tarjeta-sesion__titulo", it.titulo));
         g.appendChild(a);
@@ -574,7 +607,6 @@
       cab.appendChild(raya());
       s.appendChild(cab);
       (b.actividades || []).forEach(function (a) { s.appendChild(actividad(a)); });
-      if (b.subir) { s.appendChild(enlaceSubir(b.subir)); }
       return s;
     },
 
@@ -702,12 +734,6 @@
       g.appendChild(d);
     });
     return g;
-  }
-
-  function enlaceSubir(texto) {
-    var a = el("a", "ud-subir", texto);
-    a.href = "#secuencia";
-    return a;
   }
 
   /* =========================================================
@@ -893,11 +919,48 @@
     return svg;
   }
 
+  /* Página de una sesión: ilustración arriba, contenidos y navegación. */
+  function iniciarSesion(cont, n) {
+    var sesiones = D.bloques.filter(function (b) { return b.tipo === "sesion"; });
+    var i = sesiones.map(function (b) { return b.id; }).indexOf("s" + n);
+    if (i < 0) { mostrarAviso(); return; }
+    var b = sesiones[i];
+    document.title = b.etiqueta + " · " + b.titulo + " · " + (D.unidad.tituloPagina || "");
+    var cab = el("div", "ud-sesion-ilustracion");
+    var ilu = el("img", "ud-sesion-ilustracion__imagen");
+    ilu.alt = b.ilustracionAlt || "";
+    ilu.onerror = function () {
+      cab.textContent = "";
+      cab.classList.add("ud-sesion-ilustracion--pendiente");
+      cab.appendChild(el("span", "ud-pendiente__texto", T.ilustracionPendiente));
+    };
+    ilu.src = b.ilustracion;
+    cab.appendChild(ilu);
+    cont.appendChild(cab);
+    cont.appendChild(bloques.sesion(b));
+    var nav = el("nav", "ud-nav-sesiones");
+    nav.setAttribute("aria-label", T.navSesiones);
+    function enlace(x, plantilla, clase) {
+      var a = el("a", clase, fmt(plantilla, { etiqueta: x.etiqueta, titulo: x.titulo }));
+      a.href = "sesion-" + x.id.slice(1) + ".html";
+      return a;
+    }
+    nav.appendChild(i > 0 ? enlace(sesiones[i - 1], T.sesionAnterior, "ud-nav-sesiones__ant") : el("span"));
+    var todas = el("a", "ud-nav-sesiones__todas", T.todasSesiones);
+    todas.href = "index.html#secuencia";
+    nav.appendChild(todas);
+    nav.appendChild(i < sesiones.length - 1 ? enlace(sesiones[i + 1], T.sesionSiguiente, "ud-nav-sesiones__sig") : el("span"));
+    cont.appendChild(nav);
+  }
+
   function iniciarBloques() {
     var cont = document.querySelector('[data-ud="pagina"]');
     if (!cont) { return; }
+    var n = document.body.getAttribute("data-ud-sesion");
+    if (n) { iniciarSesion(cont, n); return; }
     if (D.unidad && D.unidad.tituloPagina) { document.title = D.unidad.tituloPagina; }
     D.bloques.forEach(function (b) {
+      if (b.tipo === "sesion") { return; }
       var f = bloques[b.tipo];
       if (!f) { mostrarAviso(); return; }
       try {

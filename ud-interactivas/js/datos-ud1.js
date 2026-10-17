@@ -38,7 +38,13 @@ window.UD_DATOS = {
   "paginaDe": "{datos} · Página {n} de {total}",
   "altPagina": "{titulo}, {datos}, página {n} escaneada",
   "abrirPagina": "Abrir la página a tamaño completo",
-  "irAPagina": "Ir a la página {n}"
+  "irAPagina": "Ir a la página {n}",
+  "ilustracionPendiente": "Ilustración pendiente",
+  "navSesiones": "Otras sesiones",
+  "sesionAnterior": "← {etiqueta} · {titulo}",
+  "sesionSiguiente": "{etiqueta} · {titulo} →",
+  "todasSesiones": "Todas las sesiones",
+  "altIlustracion": "Ilustración de {nombre}"
  },
  "imagenes": {
   "versalles": {
@@ -570,42 +576,42 @@ window.UD_DATOS = {
     {
      "num": "01",
      "titulo": "¿Súbditas o ciudadanas?",
-     "ancla": "s1"
+     "href": "sesion-1.html"
     },
     {
      "num": "02",
      "titulo": "Feminismo, sufragismo y socialismo",
-     "ancla": "s2"
+     "href": "sesion-2.html"
     },
     {
      "num": "03",
      "titulo": "Las pensadoras de la emancipación",
-     "ancla": "s3"
+     "href": "sesion-3.html"
     },
     {
      "num": "04",
      "titulo": "Educación, trabajo y ciudadanía",
-     "ancla": "s4"
+     "href": "sesion-4.html"
     },
     {
      "num": "05",
      "titulo": "Las primeras socialistas asturianas, que visitaron Asturias y que vivieron y trabajaron en Asturias.",
-     "ancla": "s5"
+     "href": "sesion-5.html"
     },
     {
      "num": "06",
      "titulo": "Asturias: La organización de las mujeres y los grupos femeninos socialistas",
-     "ancla": "s6"
+     "href": "sesion-6.html"
     },
     {
      "num": "07",
      "titulo": "Construcción del Museo Virtual",
-     "ancla": "s7"
+     "href": "sesion-7.html"
     },
     {
      "num": "08",
      "titulo": "Presentación pública",
-     "ancla": "s8"
+     "href": "sesion-8.html"
     }
    ]
   },
@@ -653,6 +659,37 @@ window.UD_DATOS = {
        {
         "imagen": "zetkin",
         "respuesta": "Clara Zetkin (1857-1933)"
+       }
+      ],
+      "alCompletar": [
+       {
+        "retratos": [
+         {
+          "nombre": "Olympe de Gouges (1748-1793)",
+          "ilustracion": "../img/ud1/ilustraciones/olympe-de-gouges.jpg",
+          "foto": "gouges"
+         },
+         {
+          "nombre": "Mary Wollstonecraft (1759-1797)",
+          "ilustracion": "../img/ud1/ilustraciones/mary-wollstonecraft.jpg",
+          "foto": "wollstonecraft"
+         },
+         {
+          "nombre": "Flora Tristán (1803-1844)",
+          "ilustracion": "../img/ud1/ilustraciones/flora-tristan.jpg",
+          "foto": "tristan"
+         },
+         {
+          "nombre": "Concepción Arenal Ponte (1820-1893)",
+          "ilustracion": "../img/ud1/ilustraciones/concepcion-arenal.jpg",
+          "foto": "arenal"
+         },
+         {
+          "nombre": "Clara Zetkin (1857-1933)",
+          "ilustracion": "../img/ud1/ilustraciones/clara-zetkin.jpg",
+          "foto": "zetkin"
+         }
+        ]
        }
       ]
      },
@@ -706,7 +743,8 @@ window.UD_DATOS = {
      "lema": "¿La Revolución Francesa fue también una revolución para las mujeres?"
     }
    ],
-   "subir": "↑ Secuencia de aprendizaje"
+   "ilustracion": "../img/ud1/sesiones/sesion-1.jpg",
+   "ilustracionAlt": ""
   },
   {
    "tipo": "sesion",
@@ -808,7 +846,8 @@ window.UD_DATOS = {
      ]
     }
    ],
-   "subir": "↑ Secuencia de aprendizaje"
+   "ilustracion": "../img/ud1/sesiones/sesion-2.jpg",
+   "ilustracionAlt": ""
   },
   {
    "tipo": "sesion",
@@ -834,14 +873,46 @@ window.UD_DATOS = {
        ]
       },
       {
+       "retratos": [
+        {
+         "nombre": "Flora Tristán (1803-1844)",
+         "ilustracion": "../img/ud1/ilustraciones/flora-tristan.jpg",
+         "foto": "tristan"
+        },
+        {
+         "nombre": "Jeanne Deroin (1805-1894)",
+         "ilustracion": "../img/ud1/ilustraciones/jeanne-deroin.jpg",
+         "foto": "deroin"
+        },
+        {
+         "nombre": "Aleksandra Kollontái (1872-1952)",
+         "ilustracion": "../img/ud1/ilustraciones/aleksandra-kollontai.jpg",
+         "foto": "kollontai"
+        },
+        {
+         "nombre": "Clara Zetkin (1857-1933)",
+         "ilustracion": "../img/ud1/ilustraciones/clara-zetkin.jpg",
+         "foto": "zetkin"
+        },
+        {
+         "nombre": "Rosa Luxemburgo (1870-1919)",
+         "ilustracion": "../img/ud1/ilustraciones/rosa-luxemburgo.jpg",
+         "foto": "luxemburg"
+        },
+        {
+         "nombre": "Concepción Arenal Ponte (1820-1893)",
+         "ilustracion": "../img/ud1/ilustraciones/concepcion-arenal.jpg",
+         "foto": "arenal"
+        },
+        {
+         "nombre": "Josefa de Amar y Borbón (1749-1833)",
+         "ilustracion": "../img/ud1/ilustraciones/josefa-amar-y-borbon.jpg",
+         "foto": "amar"
+        }
+       ]
+      },
+      {
        "galeria": [
-        "tristan",
-        "deroin",
-        "kollontai",
-        "zetkin",
-        "luxemburg",
-        "arenal",
-        "amar",
         "posada"
        ]
       },
@@ -861,7 +932,8 @@ window.UD_DATOS = {
      ]
     }
    ],
-   "subir": "↑ Secuencia de aprendizaje"
+   "ilustracion": "../img/ud1/sesiones/sesion-3.jpg",
+   "ilustracionAlt": ""
   },
   {
    "tipo": "sesion",
@@ -881,9 +953,21 @@ window.UD_DATOS = {
        ]
       },
       {
+       "retratos": [
+        {
+         "nombre": "Concepción Arenal (1820-1893)",
+         "ilustracion": "../img/ud1/ilustraciones/concepcion-arenal.jpg",
+         "foto": "arenal"
+        },
+        {
+         "nombre": "Josefa de Amar y Borbón (1749-1833)",
+         "ilustracion": "../img/ud1/ilustraciones/josefa-amar-y-borbon.jpg",
+         "foto": "amar"
+        }
+       ]
+      },
+      {
        "galeria": [
-        "arenal",
-        "amar",
         "feijoo"
        ]
       }
@@ -959,7 +1043,8 @@ window.UD_DATOS = {
      "lema": "¿Por qué la educación fue una reivindicación fundamental para las mujeres?"
     }
    ],
-   "subir": "↑ Secuencia de aprendizaje"
+   "ilustracion": "../img/ud1/sesiones/sesion-4.jpg",
+   "ilustracionAlt": ""
   },
   {
    "tipo": "sesion",
@@ -983,11 +1068,27 @@ window.UD_DATOS = {
        ]
       },
       {
-       "galeria": [
-        "gonzalez_polo",
-        "acuna",
-        "olay",
-        "rogelia"
+       "retratos": [
+        {
+         "nombre": "Virginia González Polo (1873-1923)",
+         "ilustracion": "../img/ud1/ilustraciones/virginia-gonzalez-polo.jpg",
+         "foto": "gonzalez_polo"
+        },
+        {
+         "nombre": "Rosario de Acuña y Villanueva (1850-1923)",
+         "ilustracion": "../img/ud1/ilustraciones/rosario-de-acuna.jpg",
+         "foto": "acuna"
+        },
+        {
+         "nombre": "Teresa Olay (¿?- 1924)",
+         "ilustracion": "../img/ud1/ilustraciones/teresa-olay.jpg",
+         "foto": "olay"
+        },
+        {
+         "nombre": "Rogelia González Vega (Mieres, integrante del grupo femenino socialista de Vegadotos)",
+         "ilustracion": "../img/ud1/ilustraciones/rogelia-gonzalez-vega.jpg",
+         "foto": "rogelia"
+        }
        ]
       }
      ]
@@ -1005,8 +1106,8 @@ window.UD_DATOS = {
        "titulo": "ALGUNOS TITULARES SOBRE DERECHOS TRABAJADORAS"
       },
       {
-       "ancla": "prensa",
-       "texto": "Ver El Socialista en el visor de prensa ↓"
+       "href": "index.html#prensa",
+       "texto": "Ver El Socialista en el visor de prensa →"
       },
       {
        "nota": "Pendiente de validar qué titulares de los dos números se destacan aquí."
@@ -1014,7 +1115,8 @@ window.UD_DATOS = {
      ]
     }
    ],
-   "subir": "↑ Secuencia de aprendizaje"
+   "ilustracion": "../img/ud1/sesiones/sesion-5.jpg",
+   "ilustracionAlt": ""
   },
   {
    "tipo": "sesion",
@@ -1099,7 +1201,8 @@ window.UD_DATOS = {
      ]
     }
    ],
-   "subir": "↑ Secuencia de aprendizaje"
+   "ilustracion": "../img/ud1/sesiones/sesion-6.jpg",
+   "ilustracionAlt": ""
   },
   {
    "tipo": "sesion",
@@ -1152,7 +1255,8 @@ window.UD_DATOS = {
      ]
     }
    ],
-   "subir": "↑ Secuencia de aprendizaje"
+   "ilustracion": "../img/ud1/sesiones/sesion-7.jpg",
+   "ilustracionAlt": ""
   },
   {
    "tipo": "sesion",
@@ -1185,7 +1289,8 @@ window.UD_DATOS = {
      ]
     }
    ],
-   "subir": "↑ Secuencia de aprendizaje"
+   "ilustracion": "../img/ud1/sesiones/sesion-8.jpg",
+   "ilustracionAlt": ""
   },
   {
    "tipo": "bandaMuseo",

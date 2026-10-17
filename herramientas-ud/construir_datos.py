@@ -196,6 +196,9 @@ INTERFAZ = {
     "anterior": "Anterior", "siguiente": "Siguiente", "paginaDe": "{datos} · Página {n} de {total}",
     "altPagina": "{titulo}, {datos}, página {n} escaneada", "abrirPagina": "Abrir la página a tamaño completo",
     "irAPagina": "Ir a la página {n}",
+    "ilustracionPendiente": "Ilustración pendiente", "navSesiones": "Otras sesiones",
+    "sesionAnterior": "← {etiqueta} · {titulo}", "sesionSiguiente": "{etiqueta} · {titulo} →",
+    "todasSesiones": "Todas las sesiones", "altIlustracion": "Ilustración de {nombre}",
 }
 POS = {"opciones": None}
 
@@ -218,7 +221,7 @@ assert T(20) == "Objetivos didácticos"
 
 SES = [(32, 33), (59, 60), (78, 79), (99, 100), (124, 125), (141, 142), (170, 171), (192, 193)]
 B.append({"tipo": "rejillaSesiones", "id": "secuencia", "titulo": ["Secuencia de", "aprendizaje"],
-          "items": [{"num": f"0{i+1}", "titulo": T(t), "ancla": f"s{i+1}"} for i, (_, t) in enumerate(SES)]})
+          "items": [{"num": f"0{i+1}", "titulo": T(t), "href": f"sesion-{i+1}.html"} for i, (_, t) in enumerate(SES)]})
 assert T(31) == "Secuencia de aprendizaje"
 
 
@@ -229,7 +232,12 @@ def tit(k):
 def sesion(n, actividades):
     e, t = SES[n - 1]
     return {"tipo": "sesion", "id": f"s{n}", "etiqueta": T(e), "titulo": T(t), "actividades": actividades,
-            "subir": "↑ Secuencia de aprendizaje"}
+            "ilustracion": f"../img/ud1/sesiones/sesion-{n}.jpg", "ilustracionAlt": ""}
+
+
+def ret(slug, k, foto):
+    """Retrato: ilustración (img/ud1/ilustraciones/<slug>.jpg) + foto; nombre literal del párrafo k."""
+    return {"nombre": sin_punto(T(k)), "ilustracion": f"../img/ud1/ilustraciones/{slug}.jpg", "foto": foto}
 
 
 def lst(a, b, **kw):
@@ -243,7 +251,8 @@ galeria_s1 = [("gouges", 37), ("wollstonecraft", 38), ("tristan", 39), ("arenal"
 B.append(sesion(1, [
     {"etiqueta": T(34) + " · " + T(35), "contenido": [T(36), lst(37, 41)],
      "interactiva": {"modo": "imagenes", "barajar": True, "intentosParaSolucion": 2,
-                     "elementos": [{"imagen": im, "respuesta": sin_punto(T(k))} for im, k in galeria_s1]},
+                     "elementos": [{"imagen": im, "respuesta": sin_punto(T(k))} for im, k in galeria_s1],
+                     "alCompletar": [{"retratos": [ret(sl, k, im) for (im, k), sl in zip(galeria_s1, ["olympe-de-gouges", "mary-wollstonecraft", "flora-tristan", "concepcion-arenal", "clara-zetkin"])]}]},
      "despues": [{"titulo": T(42)}, lst(43, 45)], "aula": False},
     {"etiqueta": T(47), "aula": True, "contenido": [
         T(48),
@@ -273,7 +282,10 @@ for k in s2_items:
 # S3
 B.append(sesion(3, [
     {"etiqueta": T(80), "aula": True, "contenido": [T(81), lst(82, 89),
-                                                    {"galeria": ["tristan", "deroin", "kollontai", "zetkin", "luxemburg", "arenal", "amar", "posada"]},
+                                                    {"retratos": [ret("flora-tristan", 82, "tristan"), ret("jeanne-deroin", 83, "deroin"), ret("aleksandra-kollontai", 84, "kollontai"),
+                                                                  ret("clara-zetkin", 85, "zetkin"), ret("rosa-luxemburgo", 86, "luxemburg"), ret("concepcion-arenal", 87, "arenal"),
+                                                                  ret("josefa-amar-y-borbon", 88, "amar")]},
+                                                    {"galeria": ["posada"]},
                                                     {"titulo": T(91)}, T(92), lst(93, 97)]},
 ]))
 
@@ -284,7 +296,7 @@ for k, marca, kn in frag:
     texto, ref = dividir(T(k), marca)
     elem4.append({"texto": texto, "respuesta": T(kn), "revelar": [ref.strip()], "comparar": [ref.strip()]})
 B.append(sesion(4, [
-    {"etiqueta": T(101), "contenido": [T(102), lst(103, 105), {"galeria": ["arenal", "amar", "feijoo"]}],
+    {"etiqueta": T(101), "contenido": [T(102), lst(103, 105), {"retratos": [ret("concepcion-arenal", 103, "arenal"), ret("josefa-amar-y-borbon", 104, "amar")]}, {"galeria": ["feijoo"]}],
      "interactiva": {"modo": "textos", "barajar": True, "compararAlFallar": True, "etiquetaElemento": "Fragmento {n}",
                      "textoElige": "Elige la autoría", "elementos": elem4,
                      "mensajes": {"correcto": "Correcto · {nombre}", "noEs": "No es {nombre} · prueba otra vez",
@@ -296,9 +308,10 @@ B.append(sesion(4, [
 # S5
 B.append(sesion(5, [
     {"etiqueta": T(126), "aula": True, "contenido": [T(127), lst(128, 133),
-                                                     {"galeria": ["gonzalez_polo", "acuna", "olay", "rogelia"]}]},
+                                                     {"retratos": [ret("virginia-gonzalez-polo", 128, "gonzalez_polo"), ret("rosario-de-acuna", 129, "acuna"),
+                                                                   ret("teresa-olay", 130, "olay"), ret("rogelia-gonzalez-vega", 131, "rogelia")]}]},
     {"etiqueta": T(135), "aula": True, "contenido": [T(136), T(137)], "lema": T(138),
-     "despues": [{"titulo": T(139)}, {"ancla": "prensa", "texto": "Ver El Socialista en el visor de prensa ↓"},
+     "despues": [{"titulo": T(139)}, {"href": "index.html#prensa", "texto": "Ver El Socialista en el visor de prensa →"},
                  {"nota": "Pendiente de validar qué titulares de los dos números se destacan aquí."}]},
 ]))
 

@@ -10,7 +10,8 @@ en `fuentes/`.
 | Ruta | Qué es |
 |---|---|
 | `index.html` | Portada general (tablero «Main» del boceto). La tarjeta 01 abre la Unidad 1. |
-| `ud1/index.html` | Página de la Unidad 1. Solo estructura: el contenido lo pinta `js/ud-actividades.js` desde `js/datos-ud1.js`. |
+| `ud1/index.html` | Página de la Unidad 1 (presentación, objetivos, secuencia, museo, podcast, evaluación, ampliación, recursos y créditos). |
+| `ud1/sesion-1.html` … `sesion-8.html` | Una página por sesión: ilustración arriba, contenidos y enlaces a la sesión anterior y siguiente. |
 | `css/ud.css` | Todos los estilos. `.ud-unidad` = diseño «portada 1»; `.ud-prueba` = página de prueba anterior. |
 | `js/ud-menu.js` | Menú común: plegado en móvil (< 768 px), submenú «Datos de la unidad», Escape, clic fuera. |
 | `js/ud-actividades.js` | Lógica genérica. No contiene texto de ninguna unidad. |
@@ -47,3 +48,17 @@ en %). Opciones: `barajar`, `intentosParaSolucion` (2), `compararAlFallar`,
 
 La Unidad 1 se generó desde el .docx con un script, para que los textos sean
 literales; si se edita a mano, hay que copiar los textos letra a letra.
+
+## Ilustraciones (se colocan solas al copiar el archivo)
+
+- **Cabecera de cada sesión:** `img/ud1/sesiones/sesion-1.jpg` … `sesion-8.jpg`.
+- **Ilustración de cada mujer** (se muestra en grande, junto a su foto, donde aparece):
+  `img/ud1/ilustraciones/` con estos nombres:
+  `olympe-de-gouges.jpg`, `mary-wollstonecraft.jpg`, `flora-tristan.jpg`,
+  `concepcion-arenal.jpg`, `clara-zetkin.jpg`, `jeanne-deroin.jpg`,
+  `aleksandra-kollontai.jpg`, `rosa-luxemburgo.jpg`, `josefa-amar-y-borbon.jpg`,
+  `virginia-gonzalez-polo.jpg`, `rosario-de-acuna.jpg`, `teresa-olay.jpg`,
+  `rogelia-gonzalez-vega.jpg`.
+
+Mientras falte el archivo, la sesión muestra «Ilustración pendiente» y cada mujer
+aparece solo con su foto.

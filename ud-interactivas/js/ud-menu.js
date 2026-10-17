@@ -63,8 +63,9 @@
       return;
     }
     // Enlace a un apartado de la misma página: se cierra el menú.
-    if (enlace && enlace.getAttribute("href").charAt(0) === "#") {
-      var destino = document.getElementById(enlace.getAttribute("href").slice(1));
+    var mismaPagina = enlace && enlace.hash && enlace.pathname === location.pathname;
+    if (enlace && (enlace.getAttribute("href").charAt(0) === "#" || mismaPagina)) {
+      var destino = document.getElementById(enlace.hash.slice(1));
       cerrarSubmenus();
       abrir(botonMenu, false);
       if (destino) {
