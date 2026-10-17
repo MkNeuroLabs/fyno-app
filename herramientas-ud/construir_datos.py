@@ -4,7 +4,13 @@ Todos los textos de la UD se copian del .docx (estructura.json, extraída del
 XML del documento): ningún texto de la unidad se teclea a mano aquí, salvo las
 etiquetas de la interfaz y los datos de crédito de las imágenes.
 """
-import json, re, sys
+import json, re, sys, os
+RAIZ_SITIO = os.path.dirname(os.path.dirname(os.path.abspath(sys.argv[3])))
+
+
+def existe(ruta_relativa_ud1):
+    """¿Existe el archivo? (rutas escritas como desde ud1/, p. ej. ../img/…)"""
+    return os.path.exists(os.path.join(RAIZ_SITIO, ruta_relativa_ud1.replace("../", "", 1)))
 
 EST, FICHAS, SALIDA_JS, SALIDA_CRED = sys.argv[1:5]
 P = json.load(open(EST, encoding="utf8"))
@@ -232,12 +238,13 @@ def tit(k):
 def sesion(n, actividades):
     e, t = SES[n - 1]
     return {"tipo": "sesion", "id": f"s{n}", "etiqueta": T(e), "titulo": T(t), "actividades": actividades,
-            "ilustracion": f"../img/ud1/sesiones/sesion-{n}.jpg", "ilustracionAlt": ""}
+            **({"ilustracion": f"../img/ud1/sesiones/sesion-{n}.jpg", "ilustracionAlt": ""} if existe(f"../img/ud1/sesiones/sesion-{n}.jpg") else {})}
 
 
 def ret(slug, k, foto):
     """Retrato: ilustración (img/ud1/ilustraciones/<slug>.jpg) + foto; nombre literal del párrafo k."""
-    return {"nombre": sin_punto(T(k)), "ilustracion": f"../img/ud1/ilustraciones/{slug}.jpg", "foto": foto}
+    ilu = f"../img/ud1/ilustraciones/{slug}.jpg"
+    return {"nombre": sin_punto(T(k)), "foto": foto, **({"ilustracion": ilu} if existe(ilu) else {})}
 
 
 def lst(a, b, **kw):

@@ -666,27 +666,22 @@ window.UD_DATOS = {
         "retratos": [
          {
           "nombre": "Olympe de Gouges (1748-1793)",
-          "ilustracion": "../img/ud1/ilustraciones/olympe-de-gouges.jpg",
           "foto": "gouges"
          },
          {
           "nombre": "Mary Wollstonecraft (1759-1797)",
-          "ilustracion": "../img/ud1/ilustraciones/mary-wollstonecraft.jpg",
           "foto": "wollstonecraft"
          },
          {
           "nombre": "Flora Tristán (1803-1844)",
-          "ilustracion": "../img/ud1/ilustraciones/flora-tristan.jpg",
           "foto": "tristan"
          },
          {
           "nombre": "Concepción Arenal Ponte (1820-1893)",
-          "ilustracion": "../img/ud1/ilustraciones/concepcion-arenal.jpg",
           "foto": "arenal"
          },
          {
           "nombre": "Clara Zetkin (1857-1933)",
-          "ilustracion": "../img/ud1/ilustraciones/clara-zetkin.jpg",
           "foto": "zetkin"
          }
         ]
@@ -742,9 +737,7 @@ window.UD_DATOS = {
      "oscura": true,
      "lema": "¿La Revolución Francesa fue también una revolución para las mujeres?"
     }
-   ],
-   "ilustracion": "../img/ud1/sesiones/sesion-1.jpg",
-   "ilustracionAlt": ""
+   ]
   },
   {
    "tipo": "sesion",
@@ -845,9 +838,7 @@ window.UD_DATOS = {
       "Mapa conceptual comparativo: semejanzas, diferencias, interrelaciones."
      ]
     }
-   ],
-   "ilustracion": "../img/ud1/sesiones/sesion-2.jpg",
-   "ilustracionAlt": ""
+   ]
   },
   {
    "tipo": "sesion",
@@ -876,37 +867,30 @@ window.UD_DATOS = {
        "retratos": [
         {
          "nombre": "Flora Tristán (1803-1844)",
-         "ilustracion": "../img/ud1/ilustraciones/flora-tristan.jpg",
          "foto": "tristan"
         },
         {
          "nombre": "Jeanne Deroin (1805-1894)",
-         "ilustracion": "../img/ud1/ilustraciones/jeanne-deroin.jpg",
          "foto": "deroin"
         },
         {
          "nombre": "Aleksandra Kollontái (1872-1952)",
-         "ilustracion": "../img/ud1/ilustraciones/aleksandra-kollontai.jpg",
          "foto": "kollontai"
         },
         {
          "nombre": "Clara Zetkin (1857-1933)",
-         "ilustracion": "../img/ud1/ilustraciones/clara-zetkin.jpg",
          "foto": "zetkin"
         },
         {
          "nombre": "Rosa Luxemburgo (1870-1919)",
-         "ilustracion": "../img/ud1/ilustraciones/rosa-luxemburgo.jpg",
          "foto": "luxemburg"
         },
         {
          "nombre": "Concepción Arenal Ponte (1820-1893)",
-         "ilustracion": "../img/ud1/ilustraciones/concepcion-arenal.jpg",
          "foto": "arenal"
         },
         {
          "nombre": "Josefa de Amar y Borbón (1749-1833)",
-         "ilustracion": "../img/ud1/ilustraciones/josefa-amar-y-borbon.jpg",
          "foto": "amar"
         }
        ]
@@ -931,9 +915,7 @@ window.UD_DATOS = {
       }
      ]
     }
-   ],
-   "ilustracion": "../img/ud1/sesiones/sesion-3.jpg",
-   "ilustracionAlt": ""
+   ]
   },
   {
    "tipo": "sesion",
@@ -956,12 +938,10 @@ window.UD_DATOS = {
        "retratos": [
         {
          "nombre": "Concepción Arenal (1820-1893)",
-         "ilustracion": "../img/ud1/ilustraciones/concepcion-arenal.jpg",
          "foto": "arenal"
         },
         {
          "nombre": "Josefa de Amar y Borbón (1749-1833)",
-         "ilustracion": "../img/ud1/ilustraciones/josefa-amar-y-borbon.jpg",
          "foto": "amar"
         }
        ]
@@ -1042,9 +1022,7 @@ window.UD_DATOS = {
      "oscura": true,
      "lema": "¿Por qué la educación fue una reivindicación fundamental para las mujeres?"
     }
-   ],
-   "ilustracion": "../img/ud1/sesiones/sesion-4.jpg",
-   "ilustracionAlt": ""
+   ]
   },
   {
    "tipo": "sesion",
@@ -1071,22 +1049,18 @@ window.UD_DATOS = {
        "retratos": [
         {
          "nombre": "Virginia González Polo (1873-1923)",
-         "ilustracion": "../img/ud1/ilustraciones/virginia-gonzalez-polo.jpg",
          "foto": "gonzalez_polo"
         },
         {
          "nombre": "Rosario de Acuña y Villanueva (1850-1923)",
-         "ilustracion": "../img/ud1/ilustraciones/rosario-de-acuna.jpg",
          "foto": "acuna"
         },
         {
          "nombre": "Teresa Olay (¿?- 1924)",
-         "ilustracion": "../img/ud1/ilustraciones/teresa-olay.jpg",
          "foto": "olay"
         },
         {
          "nombre": "Rogelia González Vega (Mieres, integrante del grupo femenino socialista de Vegadotos)",
-         "ilustracion": "../img/ud1/ilustraciones/rogelia-gonzalez-vega.jpg",
          "foto": "rogelia"
         }
        ]
@@ -1114,9 +1088,7 @@ window.UD_DATOS = {
       }
      ]
     }
-   ],
-   "ilustracion": "../img/ud1/sesiones/sesion-5.jpg",
-   "ilustracionAlt": ""
+   ]
   },
   {
    "tipo": "sesion",
@@ -1200,9 +1172,7 @@ window.UD_DATOS = {
       }
      ]
     }
-   ],
-   "ilustracion": "../img/ud1/sesiones/sesion-6.jpg",
-   "ilustracionAlt": ""
+   ]
   },
   {
    "tipo": "sesion",
@@ -1254,9 +1224,7 @@ window.UD_DATOS = {
       }
      ]
     }
-   ],
-   "ilustracion": "../img/ud1/sesiones/sesion-7.jpg",
-   "ilustracionAlt": ""
+   ]
   },
   {
    "tipo": "sesion",
@@ -1288,9 +1256,7 @@ window.UD_DATOS = {
       }
      ]
     }
-   ],
-   "ilustracion": "../img/ud1/sesiones/sesion-8.jpg",
-   "ilustracionAlt": ""
+   ]
   },
   {
    "tipo": "bandaMuseo",

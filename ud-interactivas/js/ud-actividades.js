@@ -929,13 +929,18 @@
     var cab = el("div", "ud-sesion-ilustracion");
     var ilu = el("img", "ud-sesion-ilustracion__imagen");
     ilu.alt = b.ilustracionAlt || "";
-    ilu.onerror = function () {
+    function pendiente() {
       cab.textContent = "";
       cab.classList.add("ud-sesion-ilustracion--pendiente");
       cab.appendChild(el("span", "ud-pendiente__texto", T.ilustracionPendiente));
-    };
-    ilu.src = b.ilustracion;
-    cab.appendChild(ilu);
+    }
+    if (b.ilustracion) {
+      ilu.onerror = pendiente;
+      ilu.src = b.ilustracion;
+      cab.appendChild(ilu);
+    } else {
+      pendiente();
+    }
     cont.appendChild(cab);
     cont.appendChild(bloques.sesion(b));
     var nav = el("nav", "ud-nav-sesiones");
