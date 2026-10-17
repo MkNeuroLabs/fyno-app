@@ -934,7 +934,19 @@
       cab.classList.add("ud-sesion-ilustracion--pendiente");
       cab.appendChild(el("span", "ud-pendiente__texto", T.ilustracionPendiente));
     }
-    if (b.ilustracion) {
+    var dIlu = b.ilustracionImagen ? datoImagen(b.ilustracionImagen) : null;
+    if (dIlu && dIlu.src) {
+      ilu.alt = dIlu.alt || "";
+      if (dIlu.w && dIlu.h) { ilu.width = dIlu.w; ilu.height = dIlu.h; }
+      ilu.onerror = pendiente;
+      ilu.src = dIlu.src;
+      cab.appendChild(ilu);
+      if (dIlu.autor || dIlu.licencia) {
+        var cr = pieCredito(dIlu);
+        cr.className = "ud-sesion-ilustracion__credito";
+        cab.appendChild(cr);
+      }
+    } else if (b.ilustracion) {
       ilu.onerror = pendiente;
       ilu.src = b.ilustracion;
       cab.appendChild(ilu);

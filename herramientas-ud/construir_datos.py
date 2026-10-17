@@ -157,6 +157,21 @@ IM["cubierta_cambrils"]["procedencia"] = "Feminismo Socialista 1.pdf (carpeta Un
 pendiente("cubierta_pablo_iglesias", "Cubierta de «Feminismo socialista» (Editorial Pablo Iglesias)", "Recursos",
           "El archivo «Feminismo socialista.pdf» no se ha recibido.")
 
+# Imágenes de cabecera de cada sesión (versión grande, misma obra y licencia que la ficha).
+CABECERAS = {
+    1: ("versalles", "Grabado coloreado: multitud de mujeres armadas con picas arrastrando un cañón hacia Versalles.", "À Versailles, à Versailles. 5 octobre 1789", "Autor desconocido", "1789"),
+    2: ("copenhague", "Fotografía de grupo de congresistas en una escalinata, Copenhague, 1910.", "VIII Congresso della II Internazionale Socialista, Copenaghen 1910", "Autor desconocido", "1910"),
+    3: ("deroin", "Grabado: Jeanne Deroin alzada en hombros por un grupo de mujeres.", "Jeanne Deroin", "Autor desconocido", "Siglo XIX"),
+    4: ("wspu", "Fotografía: mujeres sentadas alrededor de una mesa revisan papeles y libros.", "Meeting of Women's Social and Political Union (WSPU) leaders", "LSE Library", "c. 1906-1907"),
+    5: ("casa_pueblo", "Fotografía de una calle con la fachada de la Casa del Pueblo de Madrid.", "La Casa del Pueblo, de Madrid (Nuevo Mundo)", "Antonio Portela", "1908"),
+    6: ("mieres", "Fotografía actual de la fachada de la Casa del Pueblo de Mieres.", "Casa del Pueblo de Mieres", "Zapipedia", "2026"),
+    7: ("club", "Gouache: mujeres reunidas alrededor de una mesa escuchan a una oradora.", "Club patriotique de femmes", "Jean-Baptiste Lesueur", "1789-1795"),
+    8: ("desfile", "Fotografía: sufragistas vestidas de blanco desfilan por una calle de Nueva York.", "Youngest parader in New York City suffragist parade", "American Press Association", "1912"),
+}
+for _n, (_f, _alt, _tit, _aut, _fec) in CABECERAS.items():
+    if existe(f"../img/ud1/sesiones/sesion-{_n}.jpg") and _f in F:
+        imagen(f"cabecera_s{_n}", f"sesiones/sesion-{_n}.jpg", _f, _alt, _tit, _aut, _fec, f"S{_n} · cabecera")
+
 MAPA_OK = len(sys.argv) > 5 and sys.argv[5] == "mapa"
 if MAPA_OK:
     IM["mapa"] = {"src": "../img/ud1/mapa-asturias-central.png",
@@ -238,7 +253,7 @@ def tit(k):
 def sesion(n, actividades):
     e, t = SES[n - 1]
     return {"tipo": "sesion", "id": f"s{n}", "etiqueta": T(e), "titulo": T(t), "actividades": actividades,
-            **({"ilustracion": f"../img/ud1/sesiones/sesion-{n}.jpg", "ilustracionAlt": ""} if existe(f"../img/ud1/sesiones/sesion-{n}.jpg") else {})}
+            **({"ilustracionImagen": f"cabecera_s{n}"} if f"cabecera_s{n}" in IM else {})}
 
 
 def ret(slug, k, foto):
