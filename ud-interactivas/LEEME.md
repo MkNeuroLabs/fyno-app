@@ -62,3 +62,12 @@ literales; si se edita a mano, hay que copiar los textos letra a letra.
 
 Mientras falte el archivo, la sesión muestra «Ilustración pendiente» y cada mujer
 aparece solo con su foto.
+
+## Mujeres con ilustración propia (trato destacado)
+
+Carpeta `UD/correos/fotos_mujeres` (también en el Drive de m.garcia.alas@gmail.com):
+Maximina Montes, Ludivina García «La Capricha», Concepción Pérez, Dolores Valdés,
+Argentina Rubiera y Ángeles Flórez, más la imagen de grupo `mujeres-carcel-laviana1.png`.
+Ninguna aparece en la Unidad 1. Cuando aparezcan en otra unidad, se muestran con su
+ilustración en grande y su foto al lado (bloque `retratos`), con más presencia que
+el resto.
