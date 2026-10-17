@@ -157,20 +157,31 @@ IM["cubierta_cambrils"]["procedencia"] = "Feminismo Socialista 1.pdf (carpeta Un
 pendiente("cubierta_pablo_iglesias", "Cubierta de «Feminismo socialista» (Editorial Pablo Iglesias)", "Recursos",
           "El archivo «Feminismo socialista.pdf» no se ha recibido.")
 
-# Imágenes de cabecera de cada sesión (versión grande, misma obra y licencia que la ficha).
-CABECERAS = {
-    1: ("versalles", "Grabado coloreado: multitud de mujeres armadas con picas arrastrando un cañón hacia Versalles.", "À Versailles, à Versailles. 5 octobre 1789", "Autor desconocido", "1789"),
-    2: ("copenhague", "Fotografía de grupo de congresistas en una escalinata, Copenhague, 1910.", "VIII Congresso della II Internazionale Socialista, Copenaghen 1910", "Autor desconocido", "1910"),
-    3: ("deroin", "Grabado: Jeanne Deroin alzada en hombros por un grupo de mujeres.", "Jeanne Deroin", "Autor desconocido", "Siglo XIX"),
-    4: ("wspu", "Fotografía: mujeres sentadas alrededor de una mesa revisan papeles y libros.", "Meeting of Women's Social and Political Union (WSPU) leaders", "LSE Library", "c. 1906-1907"),
-    5: ("casa_pueblo", "Fotografía de una calle con la fachada de la Casa del Pueblo de Madrid.", "La Casa del Pueblo, de Madrid (Nuevo Mundo)", "Antonio Portela", "1908"),
-    6: ("mieres", "Fotografía actual de la fachada de la Casa del Pueblo de Mieres.", "Casa del Pueblo de Mieres", "Zapipedia", "2026"),
-    7: ("club", "Gouache: mujeres reunidas alrededor de una mesa escuchan a una oradora.", "Club patriotique de femmes", "Jean-Baptiste Lesueur", "1789-1795"),
-    8: ("desfile", "Fotografía: sufragistas vestidas de blanco desfilan por una calle de Nueva York.", "Youngest parader in New York City suffragist parade", "American Press Association", "1912"),
+# Imágenes de cabecera (fotografías de bancos libres, CC0, con el mismo tratamiento de color).
+STOCK = json.load(open(os.path.join(os.path.dirname(os.path.abspath(EST)), "creditos_stock.json"), encoding="utf8"))
+ALT_CAB = {
+    "portada": "Una rosa roja sobre fondo oscuro.",
+    "sesion-1": "Cartas antiguas escritas a mano sobre un escritorio.",
+    "sesion-2": "Una gran manifestación de mujeres con pancartas llena una avenida.",
+    "sesion-3": "Un libro antiguo junto a una pluma y un tintero.",
+    "sesion-4": "Libros abiertos que cubren toda la superficie.",
+    "sesion-5": "Una fábrica textil con largas filas de máquinas de hilar.",
+    "sesion-6": "Montañas escarpadas y valles con niebla.",
+    "sesion-7": "Una sala de museo vacía, de paredes blancas.",
+    "sesion-8": "Un auditorio con público sentado en las gradas.",
 }
-for _n, (_f, _alt, _tit, _aut, _fec) in CABECERAS.items():
-    if existe(f"../img/ud1/sesiones/sesion-{_n}.jpg") and _f in F:
-        imagen(f"cabecera_s{_n}", f"sesiones/sesion-{_n}.jpg", _f, _alt, _tit, _aut, _fec, f"S{_n} · cabecera")
+def stock(clave, nombre, archivo, sesion):
+    c = STOCK[nombre]
+    proveedor = {"rawpixel": "Rawpixel", "stocksnap": "StockSnap"}.get(c["provider"], c["provider"])
+    IM[clave] = {"src": "../img/ud1/" + archivo, "alt": ALT_CAB[nombre],
+                 "titulo": c.get("title") or ("Fotografía · " + proveedor),
+                 "autor": c.get("creator") or proveedor, "fecha": "",
+                 "licencia": "CC0", "fuente": c["foreign_landing_url"], "sesion": sesion,
+                 "estado": "libre", "estadoTexto": "Libre", "decorativa": True}
+stock("portada_ud", "portada", "portada-ud1.jpg", "Portada de la unidad")
+for _n in range(1, 9):
+    if existe(f"../img/ud1/sesiones/sesion-{_n}.jpg"):
+        stock(f"cabecera_s{_n}", f"sesion-{_n}", f"sesiones/sesion-{_n}.jpg", f"S{_n} · cabecera")
 
 MAPA_OK = len(sys.argv) > 5 and sys.argv[5] == "mapa"
 if MAPA_OK:
@@ -226,7 +237,7 @@ POS = {"opciones": None}
 # ---------------------------------------------------------------- bloques
 B = []
 
-B.append({"tipo": "portada", "id": "presentacion", "imagen": "versalles", "etiqueta": "Unidad 1",
+B.append({"tipo": "portada", "id": "presentacion", "imagen": "portada_ud", "etiqueta": "Unidad 1",
           "titulo": [T(0).split(":")[0] + ":", T(0).split(":", 1)[1].strip()],
           "datos": [{"clave": T(1), "valor": T(2)}, {"clave": T(3), "valor": T(4)}, {"clave": T(6), "valor": T(7) + " · " + T(8)}]})
 assert B[-1]["titulo"][0] + " " + B[-1]["titulo"][1] == T(0)
@@ -237,7 +248,7 @@ B.append({"tipo": "cifras", "etiquetaAccesible": "Datos de la unidad", "items": 
     {"valor": "8", "etiqueta": "Objetivos didácticos"},
     {"valor": "1", "etiqueta": "Producto final: " + T(7)}]})
 
-B.append({"tipo": "objetivos", "id": "objetivos", "titulo": ["Objetivos", "didácticos"], "intro": T(21), "items": L(22, 29)})
+B.append({"tipo": "objetivos", "pagina": "objetivos", "id": "objetivos", "titulo": ["Objetivos", "didácticos"], "intro": T(21), "items": L(22, 29)})
 assert T(20) == "Objetivos didácticos"
 
 SES = [(32, 33), (59, 60), (78, 79), (99, 100), (124, 125), (141, 142), (170, 171), (192, 193)]
@@ -333,7 +344,7 @@ B.append(sesion(5, [
                                                      {"retratos": [ret("virginia-gonzalez-polo", 128, "gonzalez_polo"), ret("rosario-de-acuna", 129, "acuna"),
                                                                    ret("teresa-olay", 130, "olay"), ret("rogelia-gonzalez-vega", 131, "rogelia")]}]},
     {"etiqueta": T(135), "aula": True, "contenido": [T(136), T(137)], "lema": T(138),
-     "despues": [{"titulo": T(139)}, {"href": "index.html#prensa", "texto": "Ver El Socialista en el visor de prensa →"},
+     "despues": [{"titulo": T(139)}, {"href": "recursos.html#prensa", "texto": "Ver El Socialista en el visor de prensa →"},
                  {"nota": "Pendiente de validar qué titulares de los dos números se destacan aquí."}]},
 ]))
 
@@ -376,13 +387,13 @@ for a, b, fig in [(438, 442, "gouges"), (445, 449, "wollstonecraft"), (454, 459,
     if fig == "wollstonecraft":
         cont.append(seg(451))
     salas_int.append({"num": T(a), "titulo": T(a + 1), "contenido": cont})
-B.append({"tipo": "bandaMuseo", "id": "museo", "etiqueta": T(6), "titulo": ["Museo", "Virtual"], "subtitulo": T(8),
+B.append({"tipo": "bandaMuseo", "trasSesion": 7, "id": "museo", "etiqueta": T(6), "titulo": ["Museo", "Virtual"], "subtitulo": T(8),
           "contenido": [T(9), T(10), lst(11, 18)],
           "despues": [{"titulo": T(436), "contenido": [T(437)], "salas": salas_int,
                        "despues": [{"titulo": T(481), "contenido": [T(482), {"lista": L(483, 487), "clase": "ud-lista--sin"}]}]}]})
 
 # Escuchar
-B.append({"tipo": "podcast", "id": "escuchar", "etiqueta": "Escuchar", "titulo": ["Las", "pioneras"],
+B.append({"tipo": "podcast", "pagina": "ampliacion", "id": "escuchar", "etiqueta": "Escuchar", "titulo": ["Las", "pioneras"],
           "contenido": [T(257) + " · " + T(258), T(259), {"nota": "Los audios se incorporarán cuando el alumnado los elabore."}],
           "episodios": [{"nombre": T(k)} for k in range(260, 265)]})
 
@@ -395,7 +406,7 @@ def instrumento(k_tit, peso, nombre, a, b, intro=None):
     return {"peso": peso, "nombre": nombre, "titulo": T(k_tit), "criterios": crit}
 
 
-B.append({"tipo": "evaluacion", "id": "evaluacion", "titulo": ["Eval", "uación", "junto"], "intro": T(229), "items": [
+B.append({"tipo": "evaluacion", "pagina": "evaluacion", "id": "evaluacion", "titulo": ["Eval", "uación", "junto"], "intro": T(229), "items": [
     instrumento(230, "40%", "Rúbrica del Museo Virtual", 231, 235),
     instrumento(237, "25%", "Dossier de actividades", 239, 243, intro=238),
     instrumento(245, "20%", "Exposición oral", 246, 249),
@@ -447,7 +458,7 @@ else:
     escape[4]["aula"] = True
     escape[4]["estado"] = "Mapa pendiente"
 
-B.append({"tipo": "ampliacion", "id": "ampliacion", "titulo": ["Actividades de", "ampliación"], "items": [
+B.append({"tipo": "ampliacion", "pagina": "ampliacion", "id": "ampliacion", "titulo": ["Actividades de", "ampliación"], "items": [
     {"icono": "podcast", "titulo": T(257), "lema": T(258), "contenido": [T(259), lst(260, 264)]},
     {"icono": "comic", "titulo": T(266), "lema": T(267), "contenido": [T(268), T(269), lst(270, 273)]},
     {"icono": "escape", "titulo": T(276), "lema": T(277),
@@ -468,7 +479,7 @@ B.append({"tipo": "ampliacion", "id": "ampliacion", "titulo": ["Actividades de",
         {"id": "escape-room", "titulo": T(357), "lema": T(358), "actividades": escape}]}]})
 
 # Recursos didácticos
-B.append({"tipo": "recursos", "id": "recursos", "titulo": ["Recursos", "didácticos"], "columnas": [
+B.append({"tipo": "recursos", "pagina": "recursos", "id": "recursos", "titulo": ["Recursos", "didácticos"], "columnas": [
     {"titulo": T(206), "contenido": [lst(207, 212)]},
     {"titulo": T(214), "contenido": [lst(215, 218), {"ancla": "prensa", "texto": "El Socialista en el visor ↓"}]},
     {"titulo": T(220), "contenido": [T(221), {"lista": [seg(k) for k in range(222, 227)]},
@@ -490,7 +501,7 @@ B.append({"tipo": "recursos", "id": "recursos", "titulo": ["Recursos", "didácti
             T(429)[T(429).rindex("(María Cambrils"):].strip()]}]})
 
 # Fuentes y créditos
-B.append({"tipo": "creditos", "id": "creditos", "titulo": ["Fuentes y", "créditos"], "nota": [T(489), seg(490)],
+B.append({"tipo": "creditos", "pagina": "creditos", "id": "creditos", "titulo": ["Fuentes y", "créditos"], "nota": [T(489), seg(490)],
           "tablaTitulo": "Créditos de las imágenes",
           "columnas": {"etiqueta": "Créditos de las imágenes", "cabeceras": ["Imagen", "Autor · fecha", "Licencia", "Fuente", "Dónde aparece", "Estado"]},
           "despues": [{"nota": "Tipografía Lato (SIL Open Font License) · Ilustración de la rosa: Alfonso Zapico."},

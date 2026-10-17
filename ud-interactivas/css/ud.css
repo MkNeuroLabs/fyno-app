@@ -1348,14 +1348,21 @@
 
 /* ---------- página de sesión ---------- */
 .ud-pagina.ud-unidad .ud-menu__enlace[aria-current="true"] { border-bottom-color: var(--u-rosa); }
-.ud-pagina.ud-unidad .ud-sesion-ilustracion { position: relative; margin: 0; background: var(--u-fondo-gris); }
+.ud-pagina.ud-unidad .ud-sesion-ilustracion { display: flex; justify-content: center; padding: 48px var(--u-margen) 8px; background: #fff; }
+/* Marco común de las imágenes de cabecera y portada */
+.ud-pagina.ud-unidad .ud-marco {
+  position: relative; margin: 0 18px 18px 0; padding: 14px; background: #fff;
+  border: 1px solid var(--u-tinta); box-shadow: 18px 18px 0 var(--u-acuarela-fondo), 18px 18px 0 1px var(--u-acuarela);
+}
+.ud-pagina.ud-unidad .ud-sesion-ilustracion .ud-marco { width: min(100%, 1100px); }
 .ud-pagina.ud-unidad .ud-sesion-ilustracion__imagen {
-  display: block; width: 100%; height: min(70vh, 640px); object-fit: contain;
+  display: block; width: 100%; height: auto; max-height: 600px; object-fit: cover;
 }
 .ud-pagina.ud-unidad .ud-sesion-ilustracion__credito {
-  position: absolute; right: 0; bottom: 0; max-width: 70%; margin: 0; padding: 6px 12px;
-  font-size: 11px; line-height: 1.4; color: #fff; background: rgba(26, 26, 26, 0.72);
+  position: absolute; right: 14px; bottom: 14px; max-width: 70%; margin: 0; padding: 5px 10px;
+  font-size: 11px; line-height: 1.4; color: #fff; background: rgba(26, 26, 26, 0.7);
 }
+.ud-pagina.ud-unidad .ud-figura--portada.ud-marco .ud-figura__pie { margin-top: 10px; }
 .ud-pagina.ud-unidad .ud-sesion-ilustracion__credito a { color: #fff; }
 .ud-pagina.ud-unidad .ud-sesion-ilustracion--pendiente {
   display: flex; align-items: flex-end; min-height: 320px; padding: 24px var(--u-margen); background: #d4d4d4;
@@ -1386,8 +1393,10 @@
   font-size: 20px; font-weight: 300; text-transform: uppercase; letter-spacing: 0.04em;
 }
 @media (max-width: 767.98px) {
-  .ud-pagina.ud-unidad .ud-sesion-ilustracion__imagen { height: auto; max-height: 60vh; }
-  .ud-pagina.ud-unidad .ud-sesion-ilustracion__credito { max-width: 100%; position: static; }
+  .ud-pagina.ud-unidad .ud-sesion-ilustracion { padding: 20px 16px 4px; }
+  .ud-pagina.ud-unidad .ud-marco { padding: 8px; margin: 0 10px 10px 0; box-shadow: 10px 10px 0 var(--u-acuarela-fondo), 10px 10px 0 1px var(--u-acuarela); }
+  .ud-pagina.ud-unidad .ud-sesion-ilustracion__imagen { max-height: 50vh; }
+  .ud-pagina.ud-unidad .ud-sesion-ilustracion__credito { right: 8px; bottom: 8px; max-width: calc(100% - 16px); }
   .ud-pagina.ud-unidad .ud-sesion-ilustracion--pendiente { min-height: 180px; padding: 16px; }
   .ud-pagina.ud-unidad .ud-nav-sesiones { grid-template-columns: 1fr; text-align: left; }
   .ud-pagina.ud-unidad .ud-nav-sesiones__todas,

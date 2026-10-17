@@ -489,33 +489,140 @@ window.UD_DATOS = {
    "estadoTexto": "Pendiente",
    "motivo": "El archivo «Feminismo socialista.pdf» no se ha recibido."
   },
+  "portada_ud": {
+   "src": "../img/ud1/portada-ud1.jpg",
+   "alt": "Una rosa roja sobre fondo oscuro.",
+   "titulo": "Red Rose",
+   "autor": "Piotr Lohunko",
+   "fecha": "",
+   "licencia": "CC0",
+   "fuente": "https://stocksnap.io/photo/red-rose-QIK57JI486",
+   "sesion": "Portada de la unidad",
+   "estado": "libre",
+   "estadoTexto": "Libre",
+   "decorativa": true,
+   "w": 960,
+   "h": 638
+  },
   "cabecera_s1": {
    "src": "../img/ud1/sesiones/sesion-1.jpg",
-   "alt": "Grabado coloreado: multitud de mujeres armadas con picas arrastrando un cañón hacia Versalles.",
-   "titulo": "À Versailles, à Versailles. 5 octobre 1789",
-   "autor": "Autor desconocido",
-   "fecha": "1789",
-   "licencia": "Public domain",
-   "fuente": "https://commons.wikimedia.org/wiki/File:A_Versailles,_%C3%A0_Versailles_5_octobre_1789_-_Restoration.jpg",
+   "alt": "Cartas antiguas escritas a mano sobre un escritorio.",
+   "titulo": "Free collection old writing wallpapers",
+   "autor": "Rawpixel",
+   "fecha": "",
+   "licencia": "CC0",
+   "fuente": "https://www.rawpixel.com/image/5904097/photo-image-wallpaper-paper-public-domain",
    "sesion": "S1 · cabecera",
    "estado": "libre",
    "estadoTexto": "Libre",
-   "w": 1826,
-   "h": 1280
+   "decorativa": true,
+   "w": 1024,
+   "h": 683
   },
   "cabecera_s2": {
    "src": "../img/ud1/sesiones/sesion-2.jpg",
-   "alt": "Fotografía de grupo de congresistas en una escalinata, Copenhague, 1910.",
-   "titulo": "VIII Congresso della II Internazionale Socialista, Copenaghen 1910",
-   "autor": "Autor desconocido",
-   "fecha": "1910",
-   "licencia": "Public domain",
-   "fuente": "https://commons.wikimedia.org/wiki/File:Congresso_Socialdem_1910.jpg",
+   "alt": "Una gran manifestación de mujeres con pancartas llena una avenida.",
+   "titulo": "Women’s March 2017 - Pennsylvania",
+   "autor": "Rawpixel",
+   "fecha": "",
+   "licencia": "CC0",
+   "fuente": "https://www.rawpixel.com/image/3284702/free-photo-image-protest-america-2017",
    "sesion": "S2 · cabecera",
    "estado": "libre",
    "estadoTexto": "Libre",
+   "decorativa": true,
    "w": 1024,
-   "h": 898
+   "h": 530
+  },
+  "cabecera_s3": {
+   "src": "../img/ud1/sesiones/sesion-3.jpg",
+   "alt": "Un libro antiguo junto a una pluma y un tintero.",
+   "titulo": "Old Book",
+   "autor": "Vintage RS",
+   "fecha": "",
+   "licencia": "CC0",
+   "fuente": "https://stocksnap.io/photo/old-book-PWQ8DXKW2S",
+   "sesion": "S3 · cabecera",
+   "estado": "libre",
+   "estadoTexto": "Libre",
+   "decorativa": true,
+   "w": 960,
+   "h": 640
+  },
+  "cabecera_s4": {
+   "src": "../img/ud1/sesiones/sesion-4.jpg",
+   "alt": "Libros abiertos que cubren toda la superficie.",
+   "titulo": "Open Books",
+   "autor": "Matt Bango",
+   "fecha": "",
+   "licencia": "CC0",
+   "fuente": "https://stocksnap.io/photo/open-books-HECYA5SP1L",
+   "sesion": "S4 · cabecera",
+   "estado": "libre",
+   "estadoTexto": "Libre",
+   "decorativa": true,
+   "w": 960,
+   "h": 640
+  },
+  "cabecera_s5": {
+   "src": "../img/ud1/sesiones/sesion-5.jpg",
+   "alt": "Una fábrica textil con largas filas de máquinas de hilar.",
+   "titulo": "Man Girl Spinning Machine, South",
+   "autor": "thegetty",
+   "fecha": "",
+   "licencia": "CC0",
+   "fuente": "https://www.rawpixel.com/image/14256773/man-with-girl-spinning-machine-south-carolina-cotton-mill-lewis-hine",
+   "sesion": "S5 · cabecera",
+   "estado": "libre",
+   "estadoTexto": "Libre",
+   "decorativa": true,
+   "w": 1024,
+   "h": 762
+  },
+  "cabecera_s6": {
+   "src": "../img/ud1/sesiones/sesion-6.jpg",
+   "alt": "Montañas escarpadas y valles con niebla.",
+   "titulo": "Fotografía · Rawpixel",
+   "autor": "Rawpixel",
+   "fecha": "",
+   "licencia": "CC0",
+   "fuente": "https://www.rawpixel.com/image/5959675/free-public-domain-cc0-photo",
+   "sesion": "S6 · cabecera",
+   "estado": "libre",
+   "estadoTexto": "Libre",
+   "decorativa": true,
+   "w": 1024,
+   "h": 768
+  },
+  "cabecera_s7": {
+   "src": "../img/ud1/sesiones/sesion-7.jpg",
+   "alt": "Una sala de museo vacía, de paredes blancas.",
+   "titulo": "Fotografía · Rawpixel",
+   "autor": "Rawpixel",
+   "fecha": "",
+   "licencia": "CC0",
+   "fuente": "https://www.rawpixel.com/image/5946684/free-public-domain-cc0-photo",
+   "sesion": "S7 · cabecera",
+   "estado": "libre",
+   "estadoTexto": "Libre",
+   "decorativa": true,
+   "w": 1024,
+   "h": 768
+  },
+  "cabecera_s8": {
+   "src": "../img/ud1/sesiones/sesion-8.jpg",
+   "alt": "Un auditorio con público sentado en las gradas.",
+   "titulo": "Free lecture hall image",
+   "autor": "Rawpixel",
+   "fecha": "",
+   "licencia": "CC0",
+   "fuente": "https://www.rawpixel.com/image/5907959/free-lecture-hall-image-public-domain-cc0-photo",
+   "sesion": "S8 · cabecera",
+   "estado": "libre",
+   "estadoTexto": "Libre",
+   "decorativa": true,
+   "w": 1024,
+   "h": 681
   },
   "mapa": {
    "estado": "pendiente",
@@ -530,7 +637,7 @@ window.UD_DATOS = {
   {
    "tipo": "portada",
    "id": "presentacion",
-   "imagen": "versalles",
+   "imagen": "portada_ud",
    "etiqueta": "Unidad 1",
    "titulo": [
     "La emancipación:",
@@ -576,6 +683,7 @@ window.UD_DATOS = {
   },
   {
    "tipo": "objetivos",
+   "pagina": "objetivos",
    "id": "objetivos",
    "titulo": [
     "Objetivos",
@@ -945,7 +1053,8 @@ window.UD_DATOS = {
       }
      ]
     }
-   ]
+   ],
+   "ilustracionImagen": "cabecera_s3"
   },
   {
    "tipo": "sesion",
@@ -1052,7 +1161,8 @@ window.UD_DATOS = {
      "oscura": true,
      "lema": "¿Por qué la educación fue una reivindicación fundamental para las mujeres?"
     }
-   ]
+   ],
+   "ilustracionImagen": "cabecera_s4"
   },
   {
    "tipo": "sesion",
@@ -1110,7 +1220,7 @@ window.UD_DATOS = {
        "titulo": "ALGUNOS TITULARES SOBRE DERECHOS TRABAJADORAS"
       },
       {
-       "href": "index.html#prensa",
+       "href": "recursos.html#prensa",
        "texto": "Ver El Socialista en el visor de prensa →"
       },
       {
@@ -1118,7 +1228,8 @@ window.UD_DATOS = {
       }
      ]
     }
-   ]
+   ],
+   "ilustracionImagen": "cabecera_s5"
   },
   {
    "tipo": "sesion",
@@ -1202,7 +1313,8 @@ window.UD_DATOS = {
       }
      ]
     }
-   ]
+   ],
+   "ilustracionImagen": "cabecera_s6"
   },
   {
    "tipo": "sesion",
@@ -1254,7 +1366,8 @@ window.UD_DATOS = {
       }
      ]
     }
-   ]
+   ],
+   "ilustracionImagen": "cabecera_s7"
   },
   {
    "tipo": "sesion",
@@ -1286,10 +1399,12 @@ window.UD_DATOS = {
       }
      ]
     }
-   ]
+   ],
+   "ilustracionImagen": "cabecera_s8"
   },
   {
    "tipo": "bandaMuseo",
+   "trasSesion": 7,
    "id": "museo",
    "etiqueta": "Producto final",
    "titulo": [
@@ -1440,6 +1555,7 @@ window.UD_DATOS = {
   },
   {
    "tipo": "podcast",
+   "pagina": "ampliacion",
    "id": "escuchar",
    "etiqueta": "Escuchar",
    "titulo": [
@@ -1473,6 +1589,7 @@ window.UD_DATOS = {
   },
   {
    "tipo": "evaluacion",
+   "pagina": "evaluacion",
    "id": "evaluacion",
    "titulo": [
     "Eval",
@@ -1547,6 +1664,7 @@ window.UD_DATOS = {
   },
   {
    "tipo": "ampliacion",
+   "pagina": "ampliacion",
    "id": "ampliacion",
    "titulo": [
     "Actividades de",
@@ -2104,6 +2222,7 @@ window.UD_DATOS = {
   },
   {
    "tipo": "recursos",
+   "pagina": "recursos",
    "id": "recursos",
    "titulo": [
     "Recursos",
@@ -2311,6 +2430,7 @@ window.UD_DATOS = {
   },
   {
    "tipo": "creditos",
+   "pagina": "creditos",
    "id": "creditos",
    "titulo": [
     "Fuentes y",

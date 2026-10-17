@@ -540,7 +540,7 @@
     portada: function (b) {
       var s = seccion(b, "ud-portada");
       var izq = el("div", "ud-portada__imagen");
-      izq.appendChild(figura(b.imagen, "ud-figura--portada"));
+      izq.appendChild(figura(b.imagen, "ud-figura--portada ud-marco"));
       var der = el("div", "ud-portada__texto");
       der.appendChild(el("p", "ud-antetitulo", b.etiqueta));
       der.appendChild(tituloDosTonos("h1", "ud-portada__titulo", b.titulo));
@@ -926,12 +926,14 @@
     if (i < 0) { mostrarAviso(); return; }
     var b = sesiones[i];
     document.title = b.etiqueta + " · " + b.titulo + " · " + (D.unidad.tituloPagina || "");
-    var cab = el("div", "ud-sesion-ilustracion");
+    var exterior = el("div", "ud-sesion-ilustracion");
+    var cab = el("figure", "ud-marco");
+    exterior.appendChild(cab);
     var ilu = el("img", "ud-sesion-ilustracion__imagen");
     ilu.alt = b.ilustracionAlt || "";
     function pendiente() {
       cab.textContent = "";
-      cab.classList.add("ud-sesion-ilustracion--pendiente");
+      exterior.classList.add("ud-sesion-ilustracion--pendiente");
       cab.appendChild(el("span", "ud-pendiente__texto", T.ilustracionPendiente));
     }
     var dIlu = b.ilustracionImagen ? datoImagen(b.ilustracionImagen) : null;
@@ -953,8 +955,12 @@
     } else {
       pendiente();
     }
-    cont.appendChild(cab);
+    cont.appendChild(exterior);
     cont.appendChild(bloques.sesion(b));
+    // Bloques que la unidad sitúa al final de esta sesión (p. ej., el producto final).
+    D.bloques.forEach(function (x) {
+      if (x.trasSesion === Number(n) && bloques[x.tipo]) { cont.appendChild(bloques[x.tipo](x)); }
+    });
     var nav = el("nav", "ud-nav-sesiones");
     nav.setAttribute("aria-label", T.navSesiones);
     function enlace(x, plantilla, clase) {
@@ -975,9 +981,11 @@
     if (!cont) { return; }
     var n = document.body.getAttribute("data-ud-sesion");
     if (n) { iniciarSesion(cont, n); return; }
-    if (D.unidad && D.unidad.tituloPagina) { document.title = D.unidad.tituloPagina; }
+    var vista = document.body.getAttribute("data-ud-vista") || "unidad";
+    if (vista === "unidad" && D.unidad && D.unidad.tituloPagina) { document.title = D.unidad.tituloPagina; }
     D.bloques.forEach(function (b) {
-      if (b.tipo === "sesion") { return; }
+      if (b.tipo === "sesion" || b.trasSesion) { return; }
+      if ((b.pagina || "unidad") !== vista) { return; }
       var f = bloques[b.tipo];
       if (!f) { mostrarAviso(); return; }
       try {
