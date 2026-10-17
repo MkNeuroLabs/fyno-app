@@ -961,19 +961,9 @@
     D.bloques.forEach(function (x) {
       if (x.trasSesion === Number(n) && bloques[x.tipo]) { cont.appendChild(bloques[x.tipo](x)); }
     });
-    var nav = el("nav", "ud-nav-sesiones");
-    nav.setAttribute("aria-label", T.navSesiones);
-    function enlace(x, plantilla, clase) {
-      var a = el("a", clase, fmt(plantilla, { etiqueta: x.etiqueta, titulo: x.titulo }));
-      a.href = "sesion-" + x.id.slice(1) + ".html";
-      return a;
-    }
-    nav.appendChild(i > 0 ? enlace(sesiones[i - 1], T.sesionAnterior, "ud-nav-sesiones__ant") : el("span"));
-    var todas = el("a", "ud-nav-sesiones__todas", T.todasSesiones);
-    todas.href = "index.html#secuencia";
-    nav.appendChild(todas);
-    nav.appendChild(i < sesiones.length - 1 ? enlace(sesiones[i + 1], T.sesionSiguiente, "ud-nav-sesiones__sig") : el("span"));
-    cont.appendChild(nav);
+    // La sesión se abre siempre por arriba, empezando por su imagen.
+    if ("scrollRestoration" in history) { history.scrollRestoration = "manual"; }
+    if (!location.hash) { window.scrollTo(0, 0); }
   }
 
   function iniciarBloques() {
