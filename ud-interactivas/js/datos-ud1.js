@@ -489,6 +489,34 @@ window.UD_DATOS = {
    "estadoTexto": "Pendiente",
    "motivo": "El archivo «Feminismo socialista.pdf» no se ha recibido."
   },
+  "cabecera_s1": {
+   "src": "../img/ud1/sesiones/sesion-1.jpg",
+   "alt": "Grabado coloreado: multitud de mujeres armadas con picas arrastrando un cañón hacia Versalles.",
+   "titulo": "À Versailles, à Versailles. 5 octobre 1789",
+   "autor": "Autor desconocido",
+   "fecha": "1789",
+   "licencia": "Public domain",
+   "fuente": "https://commons.wikimedia.org/wiki/File:A_Versailles,_%C3%A0_Versailles_5_octobre_1789_-_Restoration.jpg",
+   "sesion": "S1 · cabecera",
+   "estado": "libre",
+   "estadoTexto": "Libre",
+   "w": 1826,
+   "h": 1280
+  },
+  "cabecera_s2": {
+   "src": "../img/ud1/sesiones/sesion-2.jpg",
+   "alt": "Fotografía de grupo de congresistas en una escalinata, Copenhague, 1910.",
+   "titulo": "VIII Congresso della II Internazionale Socialista, Copenaghen 1910",
+   "autor": "Autor desconocido",
+   "fecha": "1910",
+   "licencia": "Public domain",
+   "fuente": "https://commons.wikimedia.org/wiki/File:Congresso_Socialdem_1910.jpg",
+   "sesion": "S2 · cabecera",
+   "estado": "libre",
+   "estadoTexto": "Libre",
+   "w": 1024,
+   "h": 898
+  },
   "mapa": {
    "estado": "pendiente",
    "descripcion": "Mapa base de Asturias",
@@ -737,7 +765,8 @@ window.UD_DATOS = {
      "oscura": true,
      "lema": "¿La Revolución Francesa fue también una revolución para las mujeres?"
     }
-   ]
+   ],
+   "ilustracionImagen": "cabecera_s1"
   },
   {
    "tipo": "sesion",
@@ -838,7 +867,8 @@ window.UD_DATOS = {
       "Mapa conceptual comparativo: semejanzas, diferencias, interrelaciones."
      ]
     }
-   ]
+   ],
+   "ilustracionImagen": "cabecera_s2"
   },
   {
    "tipo": "sesion",

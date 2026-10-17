@@ -369,6 +369,28 @@
   "motivo": "El archivo «Feminismo socialista.pdf» no se ha recibido."
  },
  {
+  "id": "cabecera_s1",
+  "archivo": "sesiones/sesion-1.jpg",
+  "titulo": "À Versailles, à Versailles. 5 octobre 1789",
+  "autor": "Autor desconocido",
+  "fecha": "1789",
+  "fuente": "https://commons.wikimedia.org/wiki/File:A_Versailles,_%C3%A0_Versailles_5_octobre_1789_-_Restoration.jpg",
+  "licencia": "Public domain",
+  "sesion": "S1 · cabecera",
+  "estado": "libre"
+ },
+ {
+  "id": "cabecera_s2",
+  "archivo": "sesiones/sesion-2.jpg",
+  "titulo": "VIII Congresso della II Internazionale Socialista, Copenaghen 1910",
+  "autor": "Autor desconocido",
+  "fecha": "1910",
+  "fuente": "https://commons.wikimedia.org/wiki/File:Congresso_Socialdem_1910.jpg",
+  "licencia": "Public domain",
+  "sesion": "S2 · cabecera",
+  "estado": "libre"
+ },
+ {
   "id": "mapa",
   "archivo": null,
   "titulo": "Mapa base de Asturias",
